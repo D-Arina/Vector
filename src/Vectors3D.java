@@ -107,7 +107,5 @@ public class Vectors3D implements Vector {
         Vectors3D newV = new Vectors3D(newVX, newVY, newVZ);
         return newV;
     }
-    // public Vectors3D eq(Vectors3D v) {
-
 
 }

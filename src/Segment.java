@@ -3,6 +3,9 @@ public class Segment{
     private Vector v2;
 
 
+    public Segment() {
+    }
+
     Segment(Vector v, Vector w){
         v1 = v;
         v2 = w;

@@ -73,4 +73,33 @@ public class Vectors3DTest {
         assertEquals(VS , V2.sub(V1));
     }
 
+    @Test
+    void dimension(){
+        assertEquals(3, V1.dimension(), 0.00001);
+    }
+
+    @Test
+    void getComponent(){
+        assertEquals(2, V1.getComponent(1), 0.00001);
+        assertEquals(4, V1.getComponent(2), 0.00001);
+        assertEquals(5, V1.getComponent(3), 0.00001);
+    }
+
+    @Test
+    void multiply() {
+        Vectors3D Vec = (Vectors3D) V1.multiply(2);
+        assertEquals(VA, Vec);
+    }
+
+    @Test
+    void add(){
+        Vectors3D vec = (Vectors3D) V1.add(V2);
+        assertEquals(VA, vec);
+    }
+
+    @Test
+    void sub(){
+        Vectors3D vec = (Vectors3D) V1.sub(V2);
+        assertEquals(VS, vec);
+    }
 }

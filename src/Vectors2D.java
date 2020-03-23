@@ -1,10 +1,6 @@
-public class Vectors2D extends Segment implements Vector{
+public class Vectors2D implements Vector{
     private double x1;
     private double y1;
-
-    Vectors2D(Vector v, Vector w) {
-        super(v, w);
-    }
 
     Vectors2D(double x, double y){
         x1 = x;
@@ -53,4 +49,16 @@ public class Vectors2D extends Segment implements Vector{
     public Vector sub(Vector v) {
         return new Vectors2D(x1 - v.getComponent(1), y1 - v.getComponent(2));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vectors2D vectors2D = (Vectors2D) o;
+
+        if (Double.compare(vectors2D.x1, x1) != 0) return false;
+        return Double.compare(vectors2D.y1, y1) == 0;
+    }
+
 }

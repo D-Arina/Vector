@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 public class SegmentTest {
     //Segment v = new Segment(1,2);
     Vector r = new Vectors2D(1,2);
+    Vector s = new Vectors2D(1,2);
     Vector point = new Vectors2D(1,1);
 
 
@@ -24,7 +25,7 @@ public class SegmentTest {
 
     @Test
     void distanceTo(){
-        Segment n = new Segment(r, point);
+        Segment n = new Segment(r, s);
         assertEquals(1, n.distanceTo(point));
     }
 

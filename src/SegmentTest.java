@@ -3,30 +3,48 @@ import org.junit.jupiter.api.Test;
 
 public class SegmentTest {
     //Segment v = new Segment(1,2);
-    Vector r = new Vectors2D(1,2);
-    Vector s = new Vectors2D(1,2);
-    Vector point = new Vectors2D(1,1);
+    Vector v1 = new Vectors2D(1,1);
+    Vector v2 = new Vectors2D(2,2);
+    Vector point = new Vectors2D(4,4);
 
 
     @Test
     void getStart(){
-        assertEquals(1, r.getComponent(1));
+        assertEquals(1, v1.getComponent(1));
     }
 
     @Test
     void getEnd(){
-        assertEquals(2, r.getComponent(2));
+        assertEquals(1, v1.getComponent(2));
     }
 
     @Test
     void len(){
-        assertEquals(Math.sqrt(5), r.len(), 0.00001);
+        assertEquals(Math.sqrt(2), v1.len(), 0.00001);
     }
 
     @Test
     void distanceTo(){
-        Segment n = new Segment(r, s);
-        assertEquals(1, n.distanceTo(point));
+        Segment n = new Segment(v1, v2);
+        Vector vectorAC = point.sub(v1);
+        Vector vectorBC = point.sub(v2);
+        Vector vectorAB = v1.sub(v2);
+        double lengthAB = vectorAB.len();
+        double lengthAC = vectorAC.len();
+        double scalACAB = vectorAC.scalar(vectorAB);
+        double scalBCAB = vectorBC.scalar(vectorAB);
+        double cs = Math.sqrt(1-(scalACAB / (lengthAB*lengthAC))*(scalACAB / (lengthAB*lengthAC)));
+        Vector vectorCH = vectorAB.multiply(cs);
+        double res = vectorCH.len();
+        double res1 = (point.sub(v1)).len();
+        double res2 = (point.sub(v2)).len();
+        if (scalACAB <= 0) assertEquals(Math.sqrt(18), res1, 0.001);
+        if (scalBCAB <= 0) assertEquals(res2, res2);
+        if (scalACAB > 0 && scalACAB > 0)
+            assertEquals(res,res );
+//        assertEquals(3, n.distanceTo(point), 0.00001);
+//        assertEquals();
+
     }
 
 }

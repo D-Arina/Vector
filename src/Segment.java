@@ -38,7 +38,7 @@ public class Segment{
         double res = vectorCH.len();
         double res1 = (pointC.sub(v1)).len();
         double res2 = (pointC.sub(v2)).len();
-        if (scalACAB <= 0) return res1;
+        if (scalACAB >= 0) return res1;
         if (scalBCAB <= 0) return res2;
         if (scalACAB > 0 && scalACAB > 0)
             return res;
